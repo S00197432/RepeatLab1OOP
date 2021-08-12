@@ -25,7 +25,27 @@ namespace RepeatLab1OOP
             Playlist.Add(s4);
             Playlist.Add(s5);
 
+            Display(Playlist);
 
+            Playlist.Sort();
+            
+            Display(Playlist);
+
+            Playlist = Playlist.OrderBy(i => Guid.NewGuid()).ToList();
+
+            Display(Playlist);
+           
+
+        }
+        
+        //prints the songs details that was added above 
+        private static void Display(List<Song> Playlist)
+        {
+            Console.WriteLine("\n{0,-20}{1,-30}{2,-20}{3,-40}", "Artist--", "Song--", "Duration--", "Genre--");
+            foreach (Song song in Playlist)
+            {
+                Console.WriteLine($"{song.Artist,-20}{song.Title,-30}{song.Duration,-20}{song.SongGenre,-40}");
+            }
         }
     }
 }
